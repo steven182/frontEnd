@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app.routing.module';
@@ -9,18 +11,22 @@ import { RolComponent } from './rol/rol.component';
 import {PersonaService} from './persona/persona.service';
 import {RolService} from './rol/rol.service';
 import {LoginComponent} from './login/login.component';
+import { CrearPersonaComponent } from './crear-persona/crear-persona.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonaComponent,
     RolComponent,
-    LoginComponent
+    LoginComponent,
+    CrearPersonaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [PersonaService, RolService],
   bootstrap: [AppComponent]

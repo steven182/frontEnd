@@ -1,4 +1,6 @@
 <div class="container">
+  <h1 style="text-align: center;">Usuarios Registrados</h1>
+  <br/>
   <table class="table">
     <thead>
       <tr>
@@ -12,33 +14,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Bogotá</td>
-        <td>mark@gmail.com</td>
-        <td>Usuario</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>Bogotá</td>
-        <td>mark@gmail.com</td>
-        <td>Usuario</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>Bogotá</td>
-        <td>mark@gmail.com</td>
-        <td>Usuario</td>
+      <tr *ngFor="let i of persona">
+        <td>{{i.idPersona}}</td>
+        <td>{{i.nombres}}</td>
+        <td>{{i.apellidos}}</td>
+        <td>{{i.telefono}}</td>
+        <td>{{i.direccion}}</td>
+        <td>{{i.correo}}</td>
+        <td>{{i.rolIdRol.nombre}}</td>
       </tr>
     </tbody>
   </table>
+  <a class="btn btn-info" routerLink="/crear-persona">Crear</a>&nbsp;
 </div>
