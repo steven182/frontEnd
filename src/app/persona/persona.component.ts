@@ -9,7 +9,7 @@ import {PersonaService} from './persona.service';
 })
 export class PersonaComponent implements OnInit {
 
-  constructor(private personaComponent:PersonaComponent) { }
+  constructor(private personaService:PersonaService) { }
 
   ngOnInit() {
   }
