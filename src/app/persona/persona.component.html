@@ -11,6 +11,7 @@
         <th scope="col">Dirección</th>
         <th scope="col">Correo</th>
         <th scope="col">Rol</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,9 @@
         <td>{{i.direccion}}</td>
         <td>{{i.correo}}</td>
         <td>{{i.rolIdRol.nombre}}</td>
+        <td><img src="../assets/editar.png" style="cursor: pointer;" (click)="editarPersona(i)" />
+          <img src="../assets/borrar.png" style="cursor: pointer;" (click)="eliminarPersona(i)" />
+        </td>
       </tr>
     </tbody>
   </table>

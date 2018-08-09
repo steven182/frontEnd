@@ -12,6 +12,7 @@ import {PersonaService} from './persona/persona.service';
 import {RolService} from './rol/rol.service';
 import {LoginComponent} from './login/login.component';
 import { CrearPersonaComponent } from './crear-persona/crear-persona.component';
+import {LoginService} from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,9 @@ import { CrearPersonaComponent } from './crear-persona/crear-persona.component';
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [PersonaService, RolService],
+  providers: [PersonaService, RolService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

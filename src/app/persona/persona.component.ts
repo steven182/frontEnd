@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PersonaService} from './persona.service';
 import {PersonaModelo} from '../modelo/persona.modelo';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-persona',
@@ -10,7 +12,7 @@ import {PersonaModelo} from '../modelo/persona.modelo';
 })
 export class PersonaComponent implements OnInit {
 	private persona: Array<PersonaModelo>;
-  constructor(private personaService:PersonaService) { }
+  constructor(private personaService:PersonaService, private router:Router) { }
 
   ngOnInit() {
   	this.cargarPersonas();
@@ -20,5 +22,15 @@ export class PersonaComponent implements OnInit {
   	this.personaService.obtenerPersonas().subscribe(resultado =>{
       this.persona = resultado;
     });
+  }
+
+  public editarPersona(persona:PersonaModelo):void{
+    sessionStorage.setItem('persona', JSON.stringify(persona));
+    this.router.navigate(['/crear-persona']);
+  }
+
+  public eliminarPersona(persona:PersonaModelo):void{
+    this.personaService.eliminarPersona(persona);
+    this.cargarPersonas();
   }
 }

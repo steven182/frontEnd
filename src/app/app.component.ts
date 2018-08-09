@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {LoginComponent} from './login/login.component';
+import {LoginService} from './login/login.service';
+import {PersonaModelo} from './modelo/persona.modelo';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  private pers:PersonaModelo;
+
+  constructor(private router:Router){
+  	this.pers = JSON.parse(sessionStorage.getItem("persona"));
+  }
+  public cerrarSesion(){
+  	sessionStorage.clear();
+  	this.router.navigate(['/']);
+  }
+
 }

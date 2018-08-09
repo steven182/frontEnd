@@ -5,11 +5,11 @@
         	<h1 style="text-align: center;">Login&nbsp;<i class="fas fa-users"></i></h1>
         	<hr/>
           <label>Usuario</label>
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" id="usuario" name="usuario" [(ngModel)]="person.correo" required="true" />
           <br/>
           <label>Contraseña</label>
-          <input type="password" class="form-control" />
-          <a class="btn btn-primary btn-block margenButton" routerLink="/persona">Ingresar</a>
+          <input type="password" class="form-control" [(ngModel)]="person.clave" id="pass" name="pass" required="true" />
+          <a class="btn btn-primary btn-block margenButton" (click) = "login()">Ingresar</a>
           <a class="btn btn-danger btn-block margenButton">Cancelar</a>
         </div>
     </div>
