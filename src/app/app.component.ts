@@ -14,11 +14,15 @@ export class AppComponent {
   private pers:PersonaModelo;
 
   constructor(private router:Router){
-  	this.pers = JSON.parse(sessionStorage.getItem("persona"));
+  	this.capturarMail();
   }
   public cerrarSesion(){
   	sessionStorage.clear();
   	this.router.navigate(['/']);
+  	this.capturarMail();
+  }
+  public capturarMail(){
+  	this.pers = JSON.parse(sessionStorage.getItem("persona"));
   }
 
 }

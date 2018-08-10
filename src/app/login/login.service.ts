@@ -9,14 +9,24 @@ import {RestResponse} from '../modelo/restResponse.modelo';
 })
 export class LoginService {
 
-	public obj:any;
+  public obj:any;
+  public sesion:boolean = false;
   constructor(private http:HttpClient) {
    }
 
   public log(per:PersonaModelo):Observable<PersonaModelo[]>{
   		sessionStorage.setItem('persona', JSON.stringify(per));
   		return this.http.post<PersonaModelo[]>("http://localhost:8080/login", JSON.stringify(per));
-  	}
+    }
+  public validaLog(person:PersonaModelo){
+    this.log(person).subscribe(res =>{
+      if(res){
+        this.sesion = true;
+      }else{
+        this.sesion = false;
+      }
+    })
+  }  
   }
 
 

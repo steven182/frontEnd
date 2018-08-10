@@ -21,6 +21,7 @@ export class CrearPersonaComponent implements OnInit {
      }else{
        this.persona1 = new PersonaModelo();
      } 
+     
  
   }
 

@@ -22,6 +22,7 @@ export class PersonaComponent implements OnInit {
   	this.personaService.obtenerPersonas().subscribe(resultado =>{
       this.persona = resultado;
     });
+    sessionStorage.clear();
   }
 
   public editarPersona(persona:PersonaModelo):void{
