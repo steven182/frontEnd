@@ -1,0 +1,35 @@
+<app-nav></app-nav>
+<div class="container">
+  <h1 style="text-align: center;">Usuarios Registrados</h1>
+  <br/>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of persona">
+        <td>{{i.idPersona}}</td>
+        <td>{{i.nombres}}</td>
+        <td>{{i.apellidos}}</td>
+        <td>{{i.telefono}}</td>
+        <td>{{i.direccion}}</td>
+        <td>{{i.correo}}</td>
+        <td>{{i.rolIdRol.nombre}}</td>
+        <td><img src="../assets/editar.png" style="cursor: pointer;" (click)="editarPersona(i)" />
+          <img src="../assets/borrar.png" style="cursor: pointer;" (click)="eliminarPersona(i)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-info" routerLink="/crear-persona">Crear</a>&nbsp;
+</div>
+
