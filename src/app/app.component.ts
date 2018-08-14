@@ -11,7 +11,22 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
   title = 'app';
+<<<<<<< HEAD
   constructor(){
+=======
+  private pers:PersonaModelo;
+
+  constructor(private router:Router){
+  	this.capturarMail();
+  }
+  public cerrarSesion(){
+  	sessionStorage.clear();
+  	this.router.navigate(['/']);
+  	this.capturarMail();
+  }
+  public capturarMail(){
+  	this.pers = JSON.parse(sessionStorage.getItem("persona"));
+>>>>>>> origin/master
   }
 
 }

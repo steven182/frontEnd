@@ -15,9 +15,24 @@ export class LoginService {
    }
 
   public log(per:PersonaModelo):Observable<PersonaModelo[]>{
+<<<<<<< HEAD
   		localStorage.setItem('persona', JSON.stringify(per));
   		return this.http.post<PersonaModelo[]>("http://localhost:8080/login", JSON.stringify(per));
     }   
+=======
+  		sessionStorage.setItem('persona', JSON.stringify(per));
+  		return this.http.post<PersonaModelo[]>("http://localhost:8080/login", JSON.stringify(per));
+    }
+  public validaLog(person:PersonaModelo){
+    this.log(person).subscribe(res =>{
+      if(res){
+        this.sesion = true;
+      }else{
+        this.sesion = false;
+      }
+    })
+  }  
+>>>>>>> origin/master
   }
 
 

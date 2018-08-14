@@ -13,8 +13,11 @@ import {RolService} from './rol/rol.service';
 import {LoginComponent} from './login/login.component';
 import { CrearPersonaComponent } from './crear-persona/crear-persona.component';
 import {LoginService} from './login/login.service';
+<<<<<<< HEAD
 import { NavComponent } from './nav/nav.component';
 import { GuardService } from './login/guard.service';
+=======
+>>>>>>> origin/master
 
 @NgModule({
   declarations: [
@@ -22,8 +25,12 @@ import { GuardService } from './login/guard.service';
     PersonaComponent,
     RolComponent,
     LoginComponent,
+<<<<<<< HEAD
     CrearPersonaComponent,
     NavComponent
+=======
+    CrearPersonaComponent
+>>>>>>> origin/master
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,11 @@ import { GuardService } from './login/guard.service';
     HttpClientModule,
     FormsModule,
   ],
+<<<<<<< HEAD
   providers: [PersonaService, RolService, LoginService, GuardService],
+=======
+  providers: [PersonaService, RolService, LoginService],
+>>>>>>> origin/master
   bootstrap: [AppComponent]
 })
 export class AppModule { }
