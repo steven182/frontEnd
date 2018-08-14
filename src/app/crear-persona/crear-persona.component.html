@@ -1,40 +1,64 @@
 <app-nav></app-nav>
-<div class="container">
-  <h1 style="text-align: center;">Registrar Usuario</h1>
-  <div class="row">
-    <div class="form-group col-md-6">
-      <label>Nombres</label>
-      <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombres" required="true" [(ngModel)]="persona1.nombres"
-        form>
-    </div>
-    <div class="form-group col-md-6">
-      <label>Apellidos</label>
-      <input type="text" name="apellido" class="form-control" id="apellido" placeholder="Apellidos" required="true" [(ngModel)]="persona1.apellidos"
-      />
-    </div>
-    <div class="form-group col-md-6">
-      <label>Telefono</label>
-      <input type="text" name="telefono" class="form-control" id="telefono" placeholder="1234567" required="true" [(ngModel)]="persona1.telefono">
-    </div>
-    <div class="form-group col-md-6">
-      <label>Dirección</label>
-      <input type="text" name="direcc" class="form-control" id="direcc" placeholder="Carrera 7 # 4-13" required="true" [(ngModel)]="persona1.direccion">
-    </div>
-    <div class="form-group col-md-6">
-      <label>Correo</label>
-      <input type="email" name="mail" class="form-control" id="mail" placeholder="xxxxx@gmail.com" required="true" [(ngModel)]="persona1.correo">
-    </div>
-    <div class="form-group col-md-6">
-      <label>Contraseña</label>
-      <input type="password" name="pass" class="form-control" id="pass" placeholder="**********" required="true" [(ngModel)]="persona1.clave">
-    </div>
-    <div class="form-group col-md-12">
-      <button type="submit" class="btn btn-primary" (click)="guardarEditarPersona()">Guardar</button>
-    </div>
-    <div class="form-group col-md-12">
-      <div class="alert alert-danger" role="alert" *ngIf="!validar">
-        {{mensaje}}
+<form [formGroup]="frmRegistro">
+  <div class="container">
+    <h1 style="text-align: center;">Registrar Usuario</h1>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Nombres</label>
+        <input type="text" name="nombre" class="form-control" [ngClass]="!frmRegistro.get('nombre').valid ? 'is-invalid' : false"
+          id="nombre" placeholder="Nombres" required="true" formControlName="nombre" />
+        <div class="invalid-feedback" *ngIf="!frmRegistro.get('nombre').valid">
+          Solo se permiten letras
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Apellidos</label>
+        <input type="text" name="apellido" class="form-control" [ngClass]="!frmRegistro.get('apellido').valid ? 'is-invalid' : false"
+          id="apellido" placeholder="Apellidos" required="true" formControlName="apellido" />
+        <div class="invalid-feedback" *ngIf="!frmRegistro.get('apellido').valid">
+          Solo se permiten letras
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Telefono</label>
+        <input type="text" name="telefono" class="form-control" [ngClass]="!frmRegistro.get('telefono').valid ? 'is-invalid' : false"
+          id="telefono" placeholder="1234567" required="true" formControlName="telefono" />
+        <div class="invalid-feedback" *ngIf="!frmRegistro.get('telefono').valid">
+          Solo se permite un minino de 7 digitos y un maximo de 10
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Dirección</label>
+        <input type="text" name="direcc" class="form-control" [ngClass]="!frmRegistro.get('direccion').valid ? 'is-invalid' : false"
+          id="direcc" placeholder="Carrera 7 # 4-13" required="true" formControlName="direccion" />
+        <div class="invalid-feedback" *ngIf="!frmRegistro.get('direccion').valid">
+          El formato de la dirección es: calle 43 # 34-12
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Correo</label>
+        <input type="email" name="mail" class="form-control" [ngClass]="!frmRegistro.get('correo').valid ? 'is-invalid' : false"
+          id="mail" placeholder="xxxxx@gmail.com" required="true" formControlName="correo" />
+        <div class="invalid-feedback" *ngIf="!frmRegistro.get('correo').valid">
+          El correo es invalido
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Contraseña</label>
+        <input type="password" name="pass" class="form-control" [ngClass]="!frmRegistro.get('clave').valid ? 'is-invalid' : false"
+          id="pass" placeholder="**********" required="true" formControlName="clave" />
+        <div class="invalid-feedback" *ngIf="!frmRegistro.get('clave').valid">
+          La contraseña debe tener un minimo de 5 caracteres y un maximo de 10
+        </div>
+      </div>
+      <div class="form-group col-md-12">
+        <button type="submit" class="btn btn-primary" (click)="guardarEditarPersona()" [disabled]="!frmRegistro.valid">Guardar</button>
+      </div>
+      <div class="form-group col-md-12">
+        <div class="alert alert-danger" role="alert" *ngIf="!validar">
+          {{mensaje}}
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>
