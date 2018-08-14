@@ -3,20 +3,14 @@ import {PersonaModelo} from '../modelo/persona.modelo';
 import {CrearPersonaService} from './crear-persona.service';
 import {OK} from './../modelo/httpStatus';
 import {Router} from '@angular/router';
-<<<<<<< HEAD
+
 import { GuardService } from '../login/guard.service';
-=======
->>>>>>> origin/master
 
 @Component({
   selector: 'app-crear-persona',
   templateUrl: './crear-persona.component.html',
   styleUrls: ['./crear-persona.component.css'],
-<<<<<<< HEAD
-  providers: [CrearPersonaService, GuardService]
-=======
-  providers: [CrearPersonaService]
->>>>>>> origin/master
+providers: [CrearPersonaService, GuardService]
 })
 export class CrearPersonaComponent implements OnInit {
 
