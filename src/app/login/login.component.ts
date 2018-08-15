@@ -12,6 +12,7 @@ export class LoginComponent{
 
 	private person:PersonaModelo;
 	logged:boolean = false;
+	msj:string = "";
 	constructor(private loginService:LoginService, private router:Router){
 		this.person = new PersonaModelo();
 	}
@@ -21,7 +22,8 @@ export class LoginComponent{
 				this.router.navigate(['/persona']);
 				this.logged = true;
 			}else{
-				alert('Verifique su usario y/o contraseña');
+				//alert('Verifique su usario y/o contraseña');
+				this.msj = 'Verifique su usario y/o contraseña';
 				this.logged = false;
 			}
 		});

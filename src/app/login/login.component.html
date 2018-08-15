@@ -12,6 +12,11 @@
           <a class="btn btn-primary btn-block margenButton" (click) = "login()">Ingresar</a>
           <a class="btn btn-danger btn-block margenButton">Cancelar</a>
         </div>
+        <br/>
+        <div class="alert alert-danger" *ngIf="msj">
+          {{msj}}
+        </div>
     </div>
   </div>
+  
 </div>
