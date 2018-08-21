@@ -11,11 +11,12 @@ import { GuardService } from '../login/guard.service';
   providers: [PersonaService, GuardService]
 })
 export class PersonaComponent implements OnInit {
-	private persona: Array<PersonaModelo>;
+  private persona: Array<PersonaModelo>;
+  reg: number = 1;
   constructor(private personaService:PersonaService, private router:Router) { }
 
   ngOnInit() {
-  	this.cargarPersonas();
+    this.cargarPersonas();
   }
 
   private cargarPersonas(): void{

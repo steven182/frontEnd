@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app.routing.module';
@@ -31,7 +32,8 @@ import { GuardService } from './login/guard.service';
     RouterModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
 
   providers: [PersonaService, RolService, LoginService, GuardService],

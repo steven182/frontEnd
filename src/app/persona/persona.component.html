@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let i of persona">
+      <tr *ngFor="let i of persona | paginate: { itemsPerPage: 5, currentPage: reg }">
         <td>{{i.idPersona}}</td>
         <td>{{i.nombres}}</td>
         <td>{{i.apellidos}}</td>
@@ -30,5 +30,10 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="reg = $event" 
+    previousLabel = "Anterior"
+    nextLabel = "Siguiente">
+  </pagination-controls>
+  
   <a class="btn btn-info" routerLink="/crear-persona">Crear</a>&nbsp;
 </div>
