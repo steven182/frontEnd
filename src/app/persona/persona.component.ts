@@ -33,6 +33,7 @@ export class PersonaComponent implements OnInit {
 
   public eliminarPersona(persona:PersonaModelo):void{
     this.personaService.eliminarPersona(persona);
+    console.log(persona.idPersona);
     this.cargarPersonas();
   }
 }

@@ -16,7 +16,8 @@ export class PersonaService {
 
   public eliminarPersona(persona:PersonaModelo):void{
   	if (confirm('¿Esta seguro de eliminar el registro?')) {
-  		this.http.post('http://localhost:8080/eliminarPersona', JSON.stringify(persona)).subscribe();
+      this.http.patch('http://localhost:8080/eliminarPersona' + '/' + persona.idPersona, 
+      new Headers({"Content-Type": "application/json"})).subscribe();
   		alert('Eliminado con exito');
   		}
   }

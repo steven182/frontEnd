@@ -35,6 +35,6 @@ export class CrearPersonaService {
   	return validar;
   }
   public guardarEditarPersona(person:PersonaModelo):Observable<RestResponse>{
-  	return this.http.post<RestResponse>("http://localhost:8080/guardarEditarPersona", JSON.stringify(person));
+  	return this.http.put<RestResponse>("http://localhost:8080/guardarEditarPersona", person);
   }
 }

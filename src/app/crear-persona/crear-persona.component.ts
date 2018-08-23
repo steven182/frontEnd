@@ -22,6 +22,7 @@ export class CrearPersonaComponent implements OnInit {
 	constructor(private perServive: CrearPersonaService, private router: Router, private fb: FormBuilder) {
 		if (sessionStorage.getItem("persona")) {
 			this.persona1 = JSON.parse(sessionStorage.getItem("persona"));
+			console.log(this.persona1);
 		} else {
 			this.persona1 = new PersonaModelo();
 		}
@@ -29,13 +30,13 @@ export class CrearPersonaComponent implements OnInit {
 
 	ngOnInit() {
 		this.frmRegistro = this.fb.group({
-			nombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-			apellido: ['', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
-			telefono: ['', [Validators.required, Validators.pattern('^\\d+$'), Validators.maxLength(10), Validators.minLength(7)]],
-			direccion: ['', [Validators.required, Validators.pattern('^.*(?=.*[0-9])(?=.*[a-zA-ZñÑ\\s]).*$')]],
-			correo: ['', [Validators.required, Validators.pattern("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")]],
-			clave: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]]
-		})
+			nombre: [this.persona1.nombres, [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+			apellido: [this.persona1.apellidos, [Validators.required, Validators.pattern('^[a-zA-Z]*$')]],
+			telefono: [this.persona1.telefono, [Validators.required, Validators.pattern('^\\d+$'), Validators.maxLength(10), Validators.minLength(7)]],
+			direccion: [this.persona1.direccion, [Validators.required, Validators.pattern('^.*(?=.*[0-9])(?=.*[a-zA-ZñÑ\\s]).*$')]],
+			correo: [this.persona1.correo, [Validators.required, Validators.pattern("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")]],
+			clave: [this.persona1.clave, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]]
+		})	
 	}
 
 	public guardarEditarPersona() {

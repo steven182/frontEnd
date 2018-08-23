@@ -16,7 +16,7 @@ export class LoginService {
 
   public log(per:PersonaModelo):Observable<PersonaModelo[]>{
   		localStorage.setItem('persona', JSON.stringify(per));
-  		return this.http.post<PersonaModelo[]>("http://localhost:8080/login", JSON.stringify(per));
+  		return this.http.post<PersonaModelo[]>("http://localhost:8080/login", per);
     }   
   public validaLog(person:PersonaModelo){
     this.log(person).subscribe(res =>{

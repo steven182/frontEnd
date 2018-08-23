@@ -11,6 +11,7 @@
         <th scope="col">Telefono</th>
         <th scope="col">Dirección</th>
         <th scope="col">Correo</th>
+        <th scope="col">Foto</th>
         <th scope="col">Rol</th>
         <th scope="col">Acción</th>
       </tr>
@@ -23,7 +24,9 @@
         <td>{{i.telefono}}</td>
         <td>{{i.direccion}}</td>
         <td>{{i.correo}}</td>
-        <td>{{i.rolIdRol.nombre}}</td>
+        <td *ngIf="i.foto != 'nada' && i.foto != null"><img src="http://localhost:8080/persona/{{i.idPersona}}" style="width: 50px; height: 50px;"></td>
+        <td *ngIf="i.foto == 'nada' || i.foto == null">No hay Foto</td>
+        <td>{{i.rolIdRol.nombre}}</td>     
         <td><img src="../assets/editar.png" style="cursor: pointer;" (click)="editarPersona(i)" />
           <img src="../assets/borrar.png" style="cursor: pointer;" (click)="eliminarPersona(i)" />
         </td>
